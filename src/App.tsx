@@ -3,6 +3,7 @@ import "./App.css";
 import Cube from "./meshes/cube";
 import CubeSpin from "./meshes/cubeSpin";
 import Sphere from "./meshes/sphere";
+import Torus from "./meshes/torus";
 
 const App = () => {
 	return (
@@ -27,11 +28,16 @@ const App = () => {
 				</group> */}
 
 				{/* Basic Spheres */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<Sphere position={[2, -2, 0]} size={[1, 30, 30]} color={"orange"} />
 					<Sphere position={[-2, 2, 0]} size={[1, 30, 30]} color={"yellow"} />
 					<Sphere position={[-2, -2, 0]} size={[1, 30, 30]} color={"red"} />
 					<Sphere position={[2, 2, 0]} size={[1, 30, 30]} color={"pink"} />
+				</group> */}
+
+				{/* Basic Torus */}
+				<group position={[0, 0, 0]}>
+					<Torus position={[2, -2, 0]} size={[1, 30, 30]} color={"orange"} />
 				</group>
 			</Canvas>
 		</>
