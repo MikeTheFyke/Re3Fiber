@@ -6,13 +6,13 @@ import Sphere from "./meshes/sphere";
 import Torus from "./meshes/torus";
 import TorusKnot from "./meshes/torusKnot";
 import HoverMeshes from "./meshes/hoverMeshes";
+import DreiMeshes from "./meshes/dreiMeshes";
 
 const App = () => {
 	return (
 		<>
 			<Canvas>
 				<directionalLight position={[0, 0, 2]} />
-
 				{/* Basic Cubes */}
 				{/* <group position={[0, 0, 0]}>
 					<Cube position={[2, -2, 0]} size={[1, 1, 1]} color={"orange"} />
@@ -20,7 +20,6 @@ const App = () => {
 					<Cube position={[-2, -2, 0]} size={[1, 1, 1]} color={"red"} />
 					<Cube position={[2, 2, 0]} size={[1, 1, 1]} color={"pink"} />
 				</group> */}
-
 				{/* Cube Spin */}
 				{/* <group position={[0, 0, 0]}>
 					<CubeSpin position={[2, -2, 0]} size={[1, 1, 1]} color={"orange"} />
@@ -28,7 +27,6 @@ const App = () => {
 					<CubeSpin position={[-2, -2, 0]} size={[1, 1, 1]} color={"red"} />
 					<CubeSpin position={[2, 2, 0]} size={[1, 1, 1]} color={"pink"} />
 				</group> */}
-
 				{/* Basic Spheres */}
 				{/* <group position={[0, 0, 0]}>
 					<Sphere
@@ -56,7 +54,6 @@ const App = () => {
 						wireframe={false}
 					/>
 				</group> */}
-
 				{/* Basic Torus */}
 				{/* <group position={[0, 0, 0]}>
 					<Torus
@@ -80,7 +77,6 @@ const App = () => {
 						color={"pink"}
 					/>
 				</group> */}
-
 				{/* TorusKnots */}
 				{/* <group position={[0, 0, 0]}>
 					<TorusKnot
@@ -110,10 +106,14 @@ const App = () => {
 						color={"pink"}
 					/>
 				</group> */}
-
 				{/* Hoverable Animation */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<HoverMeshes />
+				</group> */}
+
+				{/* Drei Meshes */}
+				<group position={[0, 0, 0]}>
+					<DreiMeshes />
 				</group>
 			</Canvas>
 		</>
