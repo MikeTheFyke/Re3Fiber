@@ -9,6 +9,7 @@ import HoverMeshes from "./meshes/hoverMeshes";
 import DreiMeshes from "./meshes/dreiMeshes";
 import DirectionalLightScene from "./scenes/directionalLightScene";
 import LevaScene from "./scenes/levaScene";
+import LevaGeometryScene from "./scenes/levaGeometryScene";
 
 const App = () => {
 	return (
@@ -121,7 +122,9 @@ const App = () => {
 
 				{/* <DirectionalLightScene /> */}
 
-				<LevaScene />
+				{/* <LevaScene /> */}
+
+				<LevaGeometryScene />
 			</Canvas>
 		</>
 	);

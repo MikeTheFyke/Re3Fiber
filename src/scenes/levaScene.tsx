@@ -13,6 +13,7 @@ const LevaScene = () => {
 			value: 0.5,
 			min: 0,
 			max: 5,
+			step: 0.1,
 		},
 	});
 
