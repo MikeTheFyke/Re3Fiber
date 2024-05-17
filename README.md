@@ -1,3 +1,3 @@
 # Re3Fiber
 
-React, TypeScript, Three.Js, Drei & Fiber.
+React, TypeScript, Three.Js, Drei, Leva & Fiber.

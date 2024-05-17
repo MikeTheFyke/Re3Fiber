@@ -7,7 +7,7 @@ import Torus from "./meshes/torus";
 import TorusKnot from "./meshes/torusKnot";
 import HoverMeshes from "./meshes/hoverMeshes";
 import DreiMeshes from "./meshes/dreiMeshes";
-import DirectionalLightScene from "./components/directionalLightScene";
+import DirectionalLightScene from "./scenes/directionalLightScene";
 
 const App = () => {
 	return (
