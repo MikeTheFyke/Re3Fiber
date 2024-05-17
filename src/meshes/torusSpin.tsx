@@ -16,8 +16,18 @@ interface Props {
 		| undefined;
 }
 
-const Torus = ({ position, color, size }: Props) => {
+const TorusSpin = ({ position, color, size }: Props) => {
 	const ref = useRef<Mesh>(null);
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			ref.current.rotation.x += delta * -2;
+			ref.current.rotation.y += delta * 8;
+			// Zoom in and out
+			ref.current.position.z = -Math.sin(state.clock.elapsedTime) * 2;
+			//
+		}
+	});
 
 	return (
 		<mesh position={position} ref={ref}>
@@ -27,4 +37,4 @@ const Torus = ({ position, color, size }: Props) => {
 	);
 };
 
-export default Torus;
+export default TorusSpin;

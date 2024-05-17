@@ -9,22 +9,33 @@ interface Props {
 		| [
 				radius?: number | undefined,
 				tube?: number | undefined,
-				radialSegments?: number | undefined,
 				tubularSegments?: number | undefined,
-				arc?: number | undefined
+				radialSegments?: number | undefined,
+				p?: number | undefined,
+				q?: number | undefined
 		  ]
 		| undefined;
 }
 
-const Torus = ({ position, color, size }: Props) => {
+const TorusKnotSpin = ({ position, color, size }: Props) => {
 	const ref = useRef<Mesh>(null);
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			ref.current.rotation.x += delta;
+			ref.current.rotation.y += delta * 2;
+			// Zoom in and out
+			ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
+			//
+		}
+	});
 
 	return (
 		<mesh position={position} ref={ref}>
-			<torusGeometry args={size} />
+			<torusKnotGeometry args={size} />
 			<meshStandardMaterial color={color} />
 		</mesh>
 	);
 };
 
-export default Torus;
+export default TorusKnotSpin;

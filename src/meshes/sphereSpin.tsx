@@ -19,10 +19,20 @@ interface Props {
 	wireframe: boolean;
 }
 
-const Sphere = ({ position, color, size, wireframe }: Props) => {
+const SphereSpin = ({ position, color, size, wireframe }: Props) => {
 	const ref = useRef<Mesh>(null);
 
 	//size = radius, widthSegments, heightSegments
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			ref.current.rotation.x += delta;
+			ref.current.rotation.y += delta * 2;
+			// Zoom in and out
+			ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
+			//
+		}
+	});
 
 	return (
 		<mesh position={position} ref={ref}>
@@ -32,4 +42,4 @@ const Sphere = ({ position, color, size, wireframe }: Props) => {
 	);
 };
 
-export default Sphere;
+export default SphereSpin;

@@ -5,6 +5,7 @@ import CubeSpin from "./meshes/cubeSpin";
 import Sphere from "./meshes/sphere";
 import Torus from "./meshes/torus";
 import TorusKnot from "./meshes/torusKnot";
+import HoverMeshes from "./meshes/hoverMeshes";
 
 const App = () => {
 	return (
@@ -29,7 +30,7 @@ const App = () => {
 				</group> */}
 
 				{/* Basic Spheres */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<Sphere
 						position={[2, -2, 0]}
 						size={[1, 30, 30]}
@@ -54,7 +55,7 @@ const App = () => {
 						color={"pink"}
 						wireframe={false}
 					/>
-				</group>
+				</group> */}
 
 				{/* Basic Torus */}
 				{/* <group position={[0, 0, 0]}>
@@ -109,6 +110,11 @@ const App = () => {
 						color={"pink"}
 					/>
 				</group> */}
+
+				{/* Hoverable Animation */}
+				<group position={[0, 0, 0]}>
+					<HoverMeshes />
+				</group>
 			</Canvas>
 		</>
 	);
