@@ -22,7 +22,10 @@ const CubeSpin = ({ position, color, size }: Props) => {
 	useFrame((state, delta) => {
 		if (ref.current) {
 			ref.current.rotation.x += delta;
-			console.log("Delta : ", delta);
+			ref.current.rotation.y += delta * 2;
+			// Zoom in and out
+			ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
+			//
 		}
 	});
 
