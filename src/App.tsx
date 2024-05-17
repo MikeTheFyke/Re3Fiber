@@ -37,7 +37,26 @@ const App = () => {
 
 				{/* Basic Torus */}
 				<group position={[0, 0, 0]}>
-					<Torus position={[2, -2, 0]} size={[1, 30, 30]} color={"orange"} />
+					<Torus
+						position={[2, -2, 0]}
+						size={[0.5, 0.25, 30, 30]}
+						color={"orange"}
+					/>
+					<Torus
+						position={[-2, 2, 0]}
+						size={[0.5, 0.5, 50, 50]}
+						color={"yellow"}
+					/>
+					<Torus
+						position={[-2, -2, 0]}
+						size={[1, 0.25, 40, 40]}
+						color={"red"}
+					/>
+					<Torus
+						position={[2, 2, 0]}
+						size={[0.75, 0.5, 60, 60]}
+						color={"pink"}
+					/>
 				</group>
 			</Canvas>
 		</>
