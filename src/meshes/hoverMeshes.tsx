@@ -120,10 +120,27 @@ const Cube = ({ position, color, size }: CubeProps) => {
 const Torus = ({ position, color, size }: TorusProps) => {
 	const ref = useRef<Mesh>(null);
 
+	const [isHovered, setIsHovered] = useState(false);
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			if (isHovered) {
+				ref.current.rotation.y += delta * 2;
+			} else {
+				ref.current.rotation.x += delta;
+			}
+		}
+	});
+
 	return (
-		<mesh position={position} ref={ref}>
+		<mesh
+			position={position}
+			ref={ref}
+			onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
+			onPointerLeave={() => setIsHovered(false)}
+		>
 			<torusGeometry args={size} />
-			<meshStandardMaterial color={color} />
+			<meshStandardMaterial color={isHovered ? "purple" : color} />
 		</mesh>
 	);
 };
@@ -131,10 +148,30 @@ const Torus = ({ position, color, size }: TorusProps) => {
 const Sphere = ({ position, color, size, wireframe }: SphereProps) => {
 	const ref = useRef<Mesh>(null);
 
+	const [isHovered, setIsHovered] = useState(false);
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			if (isHovered) {
+				ref.current.rotation.y += delta * 2;
+			} else {
+				ref.current.rotation.x += delta * 2;
+			}
+		}
+	});
+
 	return (
-		<mesh position={position} ref={ref}>
+		<mesh
+			position={position}
+			ref={ref}
+			onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
+			onPointerLeave={() => setIsHovered(false)}
+		>
 			<sphereGeometry args={size} />
-			<meshStandardMaterial color={color} wireframe={wireframe} />
+			<meshStandardMaterial
+				color={isHovered ? "black" : color}
+				wireframe={isHovered ? !wireframe : wireframe}
+			/>
 		</mesh>
 	);
 };
@@ -152,7 +189,7 @@ const HoverMeshes = () => {
 			<Sphere
 				position={[3, 0, 0]}
 				color={"yellow"}
-				size={[0.75, 30, 30]}
+				size={[0.65, 30, 30]}
 				wireframe={false}
 			/>
 		</>
