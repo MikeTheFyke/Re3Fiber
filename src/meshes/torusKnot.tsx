@@ -1,4 +1,4 @@
-import { Vector3 } from "@react-three/fiber";
+import { Vector3, useFrame } from "@react-three/fiber";
 import React, { useRef } from "react";
 import { Mesh } from "three";
 
@@ -19,6 +19,16 @@ interface Props {
 
 const TorusKnot = ({ position, color, size }: Props) => {
 	const ref = useRef<Mesh>(null);
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			ref.current.rotation.x += delta;
+			ref.current.rotation.y += delta * 2;
+			// Zoom in and out
+			ref.current.position.z = Math.sin(state.clock.elapsedTime) * 2;
+			//
+		}
+	});
 
 	return (
 		<mesh position={position} ref={ref}>

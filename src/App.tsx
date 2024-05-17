@@ -60,7 +60,7 @@ const App = () => {
 					/>
 				</group> */}
 
-				{/* <group position={[0, 0, 0]}>
+				<group position={[0, 0, 0]}>
 					<TorusKnot
 						position={[2, -2, 0]}
 						size={[0.5, 0.25, 30, 30]}
@@ -70,14 +70,14 @@ const App = () => {
 						position={[-2, 2, 0]}
 						size={[0.5, 0.5, 50, 50]}
 						color={"yellow"}
-					/> */}
-				{/* SpecialKnot */}
-				{/* <TorusKnot
+					/>
+					{/* SpecialKnot */}
+					{/* <TorusKnot
 						position={[0, 0, -74]}
 						size={[10, 3, 64, 8, 20, 13]}
 						color={"blue"}
 					/> */}
-				{/* <TorusKnot
+					<TorusKnot
 						position={[-2, -2, 0]}
 						size={[0.75, 0.25, 40, 40]}
 						color={"red"}
@@ -87,7 +87,7 @@ const App = () => {
 						size={[0.75, 0.5, 60, 60]}
 						color={"pink"}
 					/>
-				</group> */}
+				</group>
 			</Canvas>
 		</>
 	);
