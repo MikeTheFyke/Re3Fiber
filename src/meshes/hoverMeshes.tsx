@@ -121,6 +121,7 @@ const Torus = ({ position, color, size }: TorusProps) => {
 	const ref = useRef<Mesh>(null);
 
 	const [isHovered, setIsHovered] = useState(false);
+	const [isClicked, setIsClicked] = useState(false);
 
 	useFrame((state, delta) => {
 		if (ref.current) {
@@ -138,6 +139,8 @@ const Torus = ({ position, color, size }: TorusProps) => {
 			ref={ref}
 			onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
 			onPointerLeave={() => setIsHovered(false)}
+			onClick={() => setIsClicked(!isClicked)}
+			scale={isClicked ? 0.5 : 1}
 		>
 			<torusGeometry args={size} />
 			<meshStandardMaterial color={isHovered ? "purple" : color} />
@@ -149,6 +152,7 @@ const Sphere = ({ position, color, size, wireframe }: SphereProps) => {
 	const ref = useRef<Mesh>(null);
 
 	const [isHovered, setIsHovered] = useState(false);
+	const [isClicked, setIsClicked] = useState(false);
 
 	useFrame((state, delta) => {
 		if (ref.current) {
@@ -166,6 +170,8 @@ const Sphere = ({ position, color, size, wireframe }: SphereProps) => {
 			ref={ref}
 			onPointerEnter={(event) => (event.stopPropagation(), setIsHovered(true))}
 			onPointerLeave={() => setIsHovered(false)}
+			onClick={() => setIsClicked(!isClicked)}
+			scale={isClicked ? 1.5 : 1}
 		>
 			<sphereGeometry args={size} />
 			<meshStandardMaterial
