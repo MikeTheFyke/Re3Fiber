@@ -29,15 +29,35 @@ const App = () => {
 				</group> */}
 
 				{/* Basic Spheres */}
-				{/* <group position={[0, 0, 0]}>
-					<Sphere position={[2, -2, 0]} size={[1, 30, 30]} color={"orange"} />
-					<Sphere position={[-2, 2, 0]} size={[1, 30, 30]} color={"yellow"} />
-					<Sphere position={[-2, -2, 0]} size={[1, 30, 30]} color={"red"} />
-					<Sphere position={[2, 2, 0]} size={[1, 30, 30]} color={"pink"} />
-				</group> */}
+				<group position={[0, 0, 0]}>
+					<Sphere
+						position={[2, -2, 0]}
+						size={[1, 30, 30]}
+						color={"orange"}
+						wireframe={true}
+					/>
+					<Sphere
+						position={[-2, 2, 0]}
+						size={[1, 30, 30]}
+						color={"yellow"}
+						wireframe={true}
+					/>
+					<Sphere
+						position={[-2, -2, 0]}
+						size={[1, 30, 30]}
+						color={"red"}
+						wireframe={false}
+					/>
+					<Sphere
+						position={[2, 2, 0]}
+						size={[1, 30, 30]}
+						color={"pink"}
+						wireframe={false}
+					/>
+				</group>
 
 				{/* Basic Torus */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<Torus
 						position={[2, -2, 0]}
 						size={[0.5, 0.25, 30, 30]}
@@ -58,7 +78,7 @@ const App = () => {
 						size={[0.75, 0.5, 60, 60]}
 						color={"pink"}
 					/>
-				</group>
+				</group> */}
 
 				{/* TorusKnots */}
 				{/* <group position={[0, 0, 0]}>
