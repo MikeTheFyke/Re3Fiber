@@ -7,12 +7,15 @@ import Torus from "./meshes/torus";
 import TorusKnot from "./meshes/torusKnot";
 import HoverMeshes from "./meshes/hoverMeshes";
 import DreiMeshes from "./meshes/dreiMeshes";
+import DirectionalLightScene from "./components/directionalLightScene";
 
 const App = () => {
 	return (
 		<>
 			<Canvas>
-				<directionalLight position={[0, 0, 2]} />
+				<DirectionalLightScene />
+				{/* <directionalLight position={[0, 0, 2]} /> */}
+
 				{/* Basic Cubes */}
 				{/* <group position={[0, 0, 0]}>
 					<Cube position={[2, -2, 0]} size={[1, 1, 1]} color={"orange"} />
@@ -112,9 +115,9 @@ const App = () => {
 				</group> */}
 
 				{/* Drei Meshes */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<DreiMeshes />
-				</group>
+				</group> */}
 			</Canvas>
 		</>
 	);
