@@ -1,3 +1,3 @@
 # Re3Fiber
 
-React Three Fiber
+React, Three.Js & Fiber.
