@@ -4,6 +4,7 @@ import Cube from "./meshes/cube";
 import CubeSpin from "./meshes/cubeSpin";
 import Sphere from "./meshes/sphere";
 import Torus from "./meshes/torus";
+import TorusKnot from "./meshes/torusKnot";
 
 const App = () => {
 	return (
@@ -36,7 +37,7 @@ const App = () => {
 				</group> */}
 
 				{/* Basic Torus */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<Torus
 						position={[2, -2, 0]}
 						size={[0.5, 0.25, 30, 30]}
@@ -57,7 +58,36 @@ const App = () => {
 						size={[0.75, 0.5, 60, 60]}
 						color={"pink"}
 					/>
-				</group>
+				</group> */}
+
+				{/* <group position={[0, 0, 0]}>
+					<TorusKnot
+						position={[2, -2, 0]}
+						size={[0.5, 0.25, 30, 30]}
+						color={"orange"}
+					/>
+					<TorusKnot
+						position={[-2, 2, 0]}
+						size={[0.5, 0.5, 50, 50]}
+						color={"yellow"}
+					/> */}
+				{/* SpecialKnot */}
+				{/* <TorusKnot
+						position={[0, 0, -74]}
+						size={[10, 3, 64, 8, 20, 13]}
+						color={"blue"}
+					/> */}
+				{/* <TorusKnot
+						position={[-2, -2, 0]}
+						size={[0.75, 0.25, 40, 40]}
+						color={"red"}
+					/>
+					<TorusKnot
+						position={[2, 2, 0]}
+						size={[0.75, 0.5, 60, 60]}
+						color={"pink"}
+					/>
+				</group> */}
 			</Canvas>
 		</>
 	);
