@@ -15,10 +15,7 @@ import ExplodingCube from "./meshes/explodingCube";
 const App = () => {
 	return (
 		<>
-			<Canvas
-			// Exploding Cube
-			// gl={{ antialias: true }} dpr={[1, 1.5]}
-			>
+			<Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
 				{/* <directionalLight position={[0, 0, 2]} /> */}
 
 				{/* Basic Cubes */}
