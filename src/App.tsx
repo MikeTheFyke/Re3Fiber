@@ -10,11 +10,15 @@ import DreiMeshes from "./meshes/dreiMeshes";
 import DirectionalLightScene from "./scenes/directionalLightScene";
 import LevaScene from "./scenes/levaScene";
 import LevaGeometryScene from "./scenes/levaGeometryScene";
+import ExplodingCube from "./meshes/explodingCube";
 
 const App = () => {
 	return (
 		<>
-			<Canvas>
+			<Canvas
+			// Exploding Cube
+			// gl={{ antialias: true }} dpr={[1, 1.5]}
+			>
 				{/* <directionalLight position={[0, 0, 2]} /> */}
 
 				{/* Basic Cubes */}
@@ -123,8 +127,10 @@ const App = () => {
 				{/* <DirectionalLightScene /> */}
 
 				{/* <LevaScene /> */}
+				{/* <LevaGeometryScene /> */}
 
-				<LevaGeometryScene />
+				{/* Exploding Cube Scene */}
+				<ExplodingCube />
 			</Canvas>
 		</>
 	);
