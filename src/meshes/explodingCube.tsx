@@ -8,7 +8,7 @@ const ExplodingCube = () => {
 	useGLTF("./explodeCube.glb");
 
 	const motionVal = useMotionValue(0);
-	const spring = useSpring(motionVal, { stiffness: 20 });
+	const spring = useSpring(motionVal, { stiffness: 20, velocity: 10 });
 
 	const groupRef = useRef<Group>(null);
 
@@ -33,7 +33,7 @@ const ExplodingCube = () => {
 				<Center>
 					<group
 						onPointerUp={() => motionVal.set(0)}
-						onPointerDown={() => motionVal.set(0.8)}
+						onPointerDown={() => motionVal.set(0.25)}
 						onPointerLeave={() => motionVal.set(0)}
 						ref={groupRef}
 					>
