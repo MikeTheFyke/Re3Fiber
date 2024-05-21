@@ -13,6 +13,7 @@ import LevaGeometryScene from "./scenes/levaGeometryScene";
 import ExplodingCube from "./meshes/explodingCube";
 import CubeMove from "./meshes/cubeMove";
 import { useEffect, useState } from "react";
+import TextMesh from "./meshes/text";
 
 const App = () => {
 	const [breakpointX, setBreakpointX] = useState<number>();
@@ -174,6 +175,24 @@ const App = () => {
 						size={[1, 1, 1]}
 						color={"pink"}
 						breakpointX={breakpointX}
+					/>
+				</group>
+				<group position={[0, 0, 0]}>
+					<TextMesh
+						position={[0, 0, -1]}
+						color={"black"}
+						font={"/fonts/Montserrat_Bold.json"}
+						text={"Mike"}
+						rotation={[0.5, 0, 0]}
+						scale={1}
+					/>
+					<TextMesh
+						position={[0, -0.5, -1]}
+						color={"red"}
+						font={"/fonts/Montserrat-Medium_Regular.json"}
+						text={"Fyke"}
+						rotation={[-0.5, 0, 0]}
+						scale={0.75}
 					/>
 				</group>
 			</Canvas>
