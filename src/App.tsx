@@ -11,13 +11,38 @@ import DirectionalLightScene from "./scenes/directionalLightScene";
 import LevaScene from "./scenes/levaScene";
 import LevaGeometryScene from "./scenes/levaGeometryScene";
 import ExplodingCube from "./meshes/explodingCube";
+import CubeMove from "./meshes/cubeMove";
+import { useEffect, useState } from "react";
 
 const App = () => {
+	const [breakpointX, setBreakpointX] = useState<number>();
+
+	const handleResize = () => {
+		if (window.innerWidth > 1500) {
+			setBreakpointX(Math.trunc(window.innerWidth / 100) - 9);
+		} else if (window.innerWidth > 1000) {
+			setBreakpointX(Math.trunc(window.innerWidth / 100) - 4);
+		} else if (window.innerWidth > 800) {
+			setBreakpointX(Math.trunc(window.innerWidth / 100) - 2);
+		} else if (window.innerWidth > 500) {
+			setBreakpointX(Math.trunc(window.innerWidth / 100));
+		} else {
+			setBreakpointX(Math.trunc(window.innerWidth / 100) + 1);
+		}
+	};
+
+	useEffect(() => {
+		window.addEventListener("resize", handleResize);
+		handleResize();
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [handleResize]);
+
 	return (
 		<>
 			<Canvas gl={{ antialias: true }} dpr={[1, 1.5]}>
-				{/* <directionalLight position={[0, 0, 2]} /> */}
-
+				<directionalLight position={[0, 0, 2]} />
 				{/* Basic Cubes */}
 				{/* <group position={[0, 0, 0]}>
 					<Cube position={[2, -2, 0]} size={[1, 1, 1]} color={"orange"} />
@@ -115,19 +140,42 @@ const App = () => {
 				{/* <group position={[0, 0, 0]}>
 					<HoverMeshes />
 				</group> */}
-
 				{/* Drei Meshes */}
 				{/* <group position={[0, 0, 0]}>
 					<DreiMeshes />
 				</group> */}
-
 				{/* <DirectionalLightScene /> */}
-
 				{/* <LevaScene /> */}
 				{/* <LevaGeometryScene /> */}
-
 				{/* Exploding Cube Scene */}
-				<ExplodingCube />
+				{/* <ExplodingCube /> */}
+				{/* Moving Cubes */}
+				<group position={[0, 0, 0]}>
+					<CubeMove
+						position={[2, -2, 0]}
+						size={[1, 1, 1]}
+						color={"orange"}
+						breakpointX={breakpointX}
+					/>
+					<CubeMove
+						position={[-2, 2, 0]}
+						size={[1, 1, 1]}
+						color={"yellow"}
+						breakpointX={breakpointX}
+					/>
+					<CubeMove
+						position={[-2, -2, 0]}
+						size={[1, 1, 1]}
+						color={"red"}
+						breakpointX={breakpointX}
+					/>
+					<CubeMove
+						position={[2, 2, 0]}
+						size={[1, 1, 1]}
+						color={"pink"}
+						breakpointX={breakpointX}
+					/>
+				</group>
 			</Canvas>
 		</>
 	);
