@@ -151,48 +151,108 @@ const App = () => {
 				{/* Exploding Cube Scene */}
 				{/* <ExplodingCube /> */}
 				{/* Moving Cubes */}
-				<group position={[0, 0, 0]}>
+				{/* <group position={[0, 0, 0]}>
 					<CubeMove
-						position={[2, -2, 0]}
+						position={[3, -2, 0]}
 						size={[1, 1, 1]}
 						color={"orange"}
 						breakpointX={breakpointX}
 					/>
 					<CubeMove
-						position={[-2, 2, 0]}
+						position={[-3, 2, 0]}
 						size={[1, 1, 1]}
 						color={"yellow"}
 						breakpointX={breakpointX}
 					/>
 					<CubeMove
-						position={[-2, -2, 0]}
+						position={[-3, -2, 0]}
 						size={[1, 1, 1]}
 						color={"red"}
 						breakpointX={breakpointX}
 					/>
 					<CubeMove
-						position={[2, 2, 0]}
+						position={[3, 2, 0]}
 						size={[1, 1, 1]}
 						color={"pink"}
+						breakpointX={breakpointX}
+					/>
+				</group> */}
+				<group position={[0, 0, 0]}>
+					<TextMesh
+						position={[0, 2, -1]}
+						color={"black"}
+						font={"/fonts/Montserrat_Bold.json"}
+						text={"Crafting"}
+						rotation={[0, 0, 0]}
+						scale={0.5}
+						depth={0.015}
+						breakpointX={breakpointX}
+					/>
+					<TextMesh
+						position={[3, 2, -1]}
+						color={"red"}
+						font={"/fonts/Montserrat-Medium_Regular.json"}
+						text={"Stories"}
+						rotation={[-0.5, 0, 0]}
+						scale={0.5}
+						depth={0.015}
 						breakpointX={breakpointX}
 					/>
 				</group>
 				<group position={[0, 0, 0]}>
 					<TextMesh
-						position={[0, 0, -1]}
+						position={[breakpointX ?? 0, 0, -1]}
 						color={"black"}
 						font={"/fonts/Montserrat_Bold.json"}
-						text={"Mike"}
-						rotation={[0.5, 0, 0]}
-						scale={1}
+						text={"Make users feel like they are experiencing a website,"}
+						rotation={[0, 0, 0]}
+						scale={0.25}
+						depth={0.05}
+						breakpointX={breakpointX}
 					/>
 					<TextMesh
-						position={[0, -0.5, -1]}
+						position={[breakpointX ? breakpointX + 2 : 0, -0.5, -1]}
 						color={"red"}
 						font={"/fonts/Montserrat-Medium_Regular.json"}
-						text={"Fyke"}
+						text={"instead of justing viewing it."}
 						rotation={[-0.5, 0, 0]}
-						scale={0.75}
+						scale={0.25}
+						depth={0.05}
+						breakpointX={breakpointX}
+					/>
+				</group>
+				<group position={[0, 0, 0]}>
+					<TextMesh
+						position={[breakpointX ? breakpointX + 9 : 0, -2, -1]}
+						color={"black"}
+						font={"/fonts/Montserrat_Bold.json"}
+						text={"Guidelines can be like a fence around a yard."}
+						rotation={[0, 0, 0]}
+						scale={0.25}
+						depth={0.05}
+						breakpointX={breakpointX}
+					/>
+					<TextMesh
+						position={[breakpointX ? breakpointX + 10 : 0, -2.5, -1]}
+						color={"red"}
+						font={"/fonts/Montserrat-Medium_Regular.json"}
+						text={
+							"That fence should be seen like a tight rope to be walked upon, "
+						}
+						rotation={[-0.5, 0, 0]}
+						scale={0.25}
+						depth={0.05}
+						breakpointX={breakpointX}
+					/>
+					<TextMesh
+						position={[breakpointX ? breakpointX + 16 : 0, -3, -1]}
+						color={"red"}
+						font={"/fonts/Montserrat-Medium_Regular.json"}
+						text={"not a cage to be trapped inside of."}
+						rotation={[-0.5, 0, 0]}
+						scale={0.25}
+						depth={0.05}
+						breakpointX={breakpointX}
 					/>
 				</group>
 			</Canvas>

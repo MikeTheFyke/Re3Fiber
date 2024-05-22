@@ -1,5 +1,7 @@
 import { FontData, Text, Text3D } from "@react-three/drei";
-import { Euler, Vector3 } from "@react-three/fiber";
+import { Euler, Vector3, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+import { Mesh } from "three";
 
 interface Props {
 	position: Vector3 | undefined;
@@ -8,6 +10,7 @@ interface Props {
 	text: string | undefined;
 	rotation: Euler | undefined;
 	scale: number;
+	depth: number;
 	// size: [
 	// 	width?: number | undefined,
 	// 	height?: number | undefined,
@@ -16,22 +19,50 @@ interface Props {
 	// 	heightSegments?: number | undefined,
 	// 	depthSegments?: number | undefined
 	// ];
+	breakpointX: number | undefined;
 }
 
-const TextMesh = ({ position, color, font, text, rotation, scale }: Props) => {
-	// const textOptions = {
-	// 	font: font,
-	// 	size: 1,
-	// 	height: 0.1,
-	// 	color: color,
-	// };
+const TextMesh = ({
+	position,
+	color,
+	font,
+	text,
+	rotation,
+	scale,
+	depth,
+	breakpointX,
+}: Props) => {
+	const ref = useRef<Mesh>(null);
+
+	useFrame((state, delta) => {
+		if (ref.current) {
+			if (breakpointX) {
+				if (ref.current.position.x >= -breakpointX * 2) {
+					ref.current.position.x -= delta;
+				} else {
+					ref.current.position.x = breakpointX * 2;
+				}
+			}
+		}
+	});
+
+	const textOptions = {
+		font: font,
+		size: scale,
+		height: depth,
+		color: color,
+	};
 
 	return (
-		<mesh position={position}>
-			{/* <Text3D {...textOptions}>Test</Text3D> */}
-			<Text position={position} rotation={rotation} scale={scale} color={color}>
+		<mesh position={position} ref={ref}>
+			<Text3D {...textOptions}>
 				{text}
-			</Text>
+				<meshStandardMaterial color={color} />
+			</Text3D>
+
+			{/* <Text position={position} rotation={rotation} scale={scale} color={color}>
+				{text}
+			</Text> */}
 		</mesh>
 	);
 };
