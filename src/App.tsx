@@ -14,6 +14,9 @@ import ExplodingCube from "./meshes/explodingCube";
 import CubeMove from "./meshes/cubeMove";
 import { useEffect, useState } from "react";
 import TextMesh from "./meshes/text";
+import Bouncing3DText from "./meshes/textBounce";
+import { Center } from "@react-three/drei";
+import ExplodingCubeWithText from "./meshes/explodingCubeWithText";
 
 const App = () => {
 	const [breakpointX, setBreakpointX] = useState<number>();
@@ -177,7 +180,8 @@ const App = () => {
 						breakpointX={breakpointX}
 					/>
 				</group> */}
-				<group position={[0, 0, 0]}>
+				{/* Text Meshes */}
+				{/* <group position={[0, 0, 0]}>
 					<TextMesh
 						position={[0, 2, -1]}
 						color={"black"}
@@ -254,7 +258,34 @@ const App = () => {
 						depth={0.05}
 						breakpointX={breakpointX}
 					/>
-				</group>
+				</group> */}
+				{/* <Center>
+					<group position={[0, 0, 0]}>
+						<Bouncing3DText
+							message={"CRAFTING"}
+							message2={"STORIES"}
+							position={[-0.65, 2, 2]}
+							color={"red"}
+							font={"/fonts/Montserrat-Medium_Regular.json"}
+							rotation={[-0.5, 0, 0]}
+							scale={0.25}
+							depth={0.05}
+							breakpointX={breakpointX}
+						/>
+						<Bouncing3DText
+							message={"STORIES"}
+							position={[-0.5, 0, 2]}
+							color={"red"}
+							font={"/fonts/Montserrat-Medium_Regular.json"}
+							rotation={[-0.5, 0, 0]}
+							scale={0.25}
+							depth={0.05}
+							breakpointX={breakpointX}
+						/>
+					</group>
+				</Center> */}
+				{/* Exploding Cube With Text */}
+				<ExplodingCubeWithText />
 			</Canvas>
 		</>
 	);
